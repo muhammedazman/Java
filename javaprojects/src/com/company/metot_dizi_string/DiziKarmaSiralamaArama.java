@@ -11,6 +11,29 @@ public class DiziKarmaSiralamaArama {
         System.out.println();
         selectionSortSiralama(sayilar);
         diziYazdir(sayilar);
+
+        int sonucIndex = binarySearch(sayilar, 120);
+        System.out.println("\nAranan Elemanin Index Deger: " + sonucIndex);
+    }
+
+    private static int binarySearch(int[] dizi, int aranacakEleman) {
+        int enDusukIndex = 0;
+        int enYuksekIndex = dizi.length - 1;
+
+        while (enYuksekIndex >= enDusukIndex) {
+
+            int ortaIndex = (enYuksekIndex + enDusukIndex) / 2;
+
+            if(aranacakEleman < dizi[ortaIndex]) {
+                enYuksekIndex = ortaIndex - 1;
+            } else if (aranacakEleman == dizi[ortaIndex]) {
+                return ortaIndex;
+            } else {
+                enDusukIndex = ortaIndex + 1;
+            }
+        }
+
+        return -enDusukIndex - 1;
     }
 
     private static void selectionSortSiralama(int[] dizi) {
