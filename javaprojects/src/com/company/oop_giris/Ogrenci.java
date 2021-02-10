@@ -8,22 +8,32 @@ public class Ogrenci {
     boolean aktif;
 
     public Ogrenci() {
-        System.out.println("Ögrenci nesnesi cagriliyor");
-        aktif = true;
-        ogrenciNo = 999;
-        isim = "Henüz isim verilmemis";
-        sinif = 127;
+
+    }
+
+    public Ogrenci(int ogrenciNo) {
+        this.ogrenciNo = ogrenciNo;
+    }
+
+    public Ogrenci (int ogrenciNo, String isim) {
+        //this.ogrenciNo = ogrenciNo;
+        this(ogrenciNo); //Ogrenci(ogrenciNo) fonksiyonunu cagiriyoru
+        this.isim = isim;
+    }
+
+    public Ogrenci (int ogrenciNo, String isim, byte sinif) {
+        //this.ogrenciNo = ogrenciNo;
+        //this.isim = isim;
+        this(ogrenciNo,isim);
+        this.sinif = sinif;
     }
 
     public Ogrenci(int ogrenciNo, String isim, byte sinif, boolean aktif) {
-        this.ogrenciNo = ogrenciNo;
-        this.isim = isim;
-        this.sinif = sinif;
+        //this.ogrenciNo = ogrenciNo;
+        //this.isim = isim;
+        //this.sinif = sinif;
+        this(ogrenciNo, isim, sinif);
         this.aktif = aktif;
-    }
-
-    public void dersAl() {
-        System.out.println("Ögrenci ders aliyor");
     }
 
     public void ogrenciBilgileriniYazdir() {
