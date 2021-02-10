@@ -15,6 +15,7 @@ public class Televizyon {
             this.kanal = kanal;
         } else {
             System.out.println("tv kapali veya yanlis bir deger girdiniz!");
+            kanal=1;
         }
     }
 
