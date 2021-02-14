@@ -9,6 +9,9 @@ public class KalitimliOrnek {
 
         Ogrenci ogrenci = new Ogrenci("Muhammed", 392185, 30, 357);
         System.out.println(ogrenci);
+
+        MezunOgrenci mezunOgrenci = new MezunOgrenci("Emre", 9874562, 35, 541, "BTK");
+        System.out.println(mezunOgrenci);
     }
 }
 
@@ -115,6 +118,34 @@ class Ogrenci extends Kisi {
                 " tckimlik=" + getTckimlik() +
                 " yas=" + getYas() +
                 " ogrenciNo=" + ogrenciNo + "" +
+                '}' +"\n";
+    }
+}
+
+class MezunOgrenci extends Ogrenci{
+    private String calismaYeri;
+
+    public MezunOgrenci(String isim, long tckimlik, int yas, int ogrenciNo, String calismaYeri) {
+        super(isim, tckimlik, yas, ogrenciNo);
+        this.calismaYeri = calismaYeri;
+    }
+
+    public String getCalismaYeri() {
+        return calismaYeri;
+    }
+
+    public void setCalismaYeri(String calismaYeri) {
+        this.calismaYeri = calismaYeri;
+    }
+
+    @Override
+    public String toString() {
+        return "MezunOgrenci{" +
+                " adi='" + getIsim() + '\''+
+                " tckimlik=" + getTckimlik() +
+                " yas=" + getYas() +
+                " ogrenciNo=" + getOgrenciNo() + "" +
+                " calismaYeri='" + calismaYeri + '\'' +
                 '}';
     }
 }
