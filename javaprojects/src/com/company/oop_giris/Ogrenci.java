@@ -42,4 +42,14 @@ public class Ogrenci {
        else
            System.out.println("Bu ögrenci aktif degil");
     }
+
+    @Override
+    public String toString() {
+        return "Ogrenci{" +
+                "ogrenciNo=" + ogrenciNo +
+                ", isim='" + isim + '\'' +
+                ", sinif=" + sinif +
+                ", aktif=" + aktif +
+                '}';
+    }
 }
