@@ -19,6 +19,8 @@ public class CokluKalitimGerekliligi {
         ArrayList<PopSarkiciOzellikleri> sarkicilar = new ArrayList<>();
         sarkicilar.add(popSarkici1);
         sarkicilar.add(popSarkici2);
+
+        popSarkici1.adiniSoyle();
     }
 }
 
@@ -48,6 +50,10 @@ interface PopSarkiciOzellikleri {
     void sahnedeDansEt();
     void duetYap();
     int yas = 50;//default static ve final
+
+    default void adiniSoyle(){
+        System.out.println("Ben Pop Sarkicisiyim");
+    }
 }
 
 class Ogrenci implements OgrenciOzellikleri{
