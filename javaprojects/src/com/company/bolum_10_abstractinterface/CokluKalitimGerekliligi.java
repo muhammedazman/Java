@@ -27,6 +27,15 @@ interface Kisi{
     void sporYap();
 }
 
+interface OgrenciOzellikleri extends Kisi, UniversiteOgrencisi{
+    void dersCalis();
+    void okulaGit();
+}
+
+interface UniversiteOgrencisi{
+    void finallereCalis();
+}
+
 abstract class Sarkici implements Kisi {
     abstract void sarkiSoyle();
 }
@@ -38,6 +47,35 @@ interface ArabeskSarkiciOzellikleri {
 interface PopSarkiciOzellikleri {
     void sahnedeDansEt();
     void duetYap();
+    int yas = 50;//default static ve final
+}
+
+class Ogrenci implements OgrenciOzellikleri{
+
+    @Override
+    public void yemekYe() {
+
+    }
+
+    @Override
+    public void sporYap() {
+
+    }
+
+    @Override
+    public void dersCalis() {
+
+    }
+
+    @Override
+    public void okulaGit() {
+
+    }
+
+    @Override
+    public void finallereCalis() {
+
+    }
 }
 
 class Tarkan implements PopSarkiciOzellikleri{
