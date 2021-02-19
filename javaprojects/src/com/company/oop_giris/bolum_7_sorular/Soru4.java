@@ -15,6 +15,7 @@ public class Soru4 {
 
         ayse.kiyasla(emre);//this:ayse
         emre.kiyasla(hasan);//this:emre
+
     }
 }
 
