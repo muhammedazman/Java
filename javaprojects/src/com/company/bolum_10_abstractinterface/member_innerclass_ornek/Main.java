@@ -15,5 +15,10 @@ public class Main {
 
         int carpim = hesapMakinesi.carp(6, 4);
         System.out.println("Carpim: " + carpim);
+
+        String bolum = hesapMakinesi.bolmeYap(25, 0);
+        if (!bolum.equals("")){
+            System.out.println("Bölme: " + bolum);
+        }
     }
 }
