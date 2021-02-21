@@ -12,5 +12,9 @@ public class StatikDahilSiniflar {
         CerceveSinif.statikMetot();
 
         CerceveSinif.IcSinif icSinif = new CerceveSinif.IcSinif();
+        icSinif.icSinifNesneDegiskeni = 5;
+        icSinif.icSinifMetot();
+        CerceveSinif.IcSinif.icSinifStatikMetot();
+        CerceveSinif.IcSinif.icSinifStaticDegisken = 52;
     }
 }
