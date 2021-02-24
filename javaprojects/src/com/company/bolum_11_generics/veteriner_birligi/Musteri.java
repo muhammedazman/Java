@@ -18,6 +18,12 @@ public class Musteri extends Kisi{
         System.out.println(hayvan+ " " + getIsim() + " müstersine eklenildi");
     }
 
+    public void musteriHayvanliariniListele(){
+        for (Hayvan h:musteriHayvanlari) {
+            System.out.println(h);
+        }
+    }
+
     @Override
     void kendiniTanit() {
         System.out.println(this.toString() + " Ben bir müsteriyim");

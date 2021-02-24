@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         ilkNesneleriOlustur();
+
     }
 
     private static void ilkNesneleriOlustur(){
@@ -29,8 +30,45 @@ public class Main {
         m3.musteriyeHayvanEkle(kopek3);
 
         Veteriner v1 = new Veteriner("ayse", "456", "ankara üniversitesi", 1);
+        v1.musteriEkle(m1);
+        v1.musteriEkle(m2);
+
         Veteriner v2 = new Veteriner("fatma", "567", "ege üniversitesi", 2);
+        v2.musteriEkle(m1);
+        v2.musteriEkle(m3);
+
         Veteriner v3 = new Veteriner("hayriye", "678", "marmara üniversitesi", 3);
+        v3.musteriEkle(m3);
+
+        v1.musterileriListele();
+
+        SehirVeterinerlikleri sehirVeterinerlikleri = new SehirVeterinerlikleri("Ankara");
+        sehirVeterinerlikleri.sehireVeterineEkle(v1);
+        sehirVeterinerlikleri.sehireVeterineEkle(v2);
+        sehirVeterinerlikleri.toplamVeterinerSayisiniBul();
+
+        SehirVeterinerlikleri sehirVeterinerlikleriIzmir = new SehirVeterinerlikleri("Izmir");
+        sehirVeterinerlikleriIzmir.sehireVeterineEkle(v2);
+        sehirVeterinerlikleriIzmir.sehireVeterineEkle(v3);
+        sehirVeterinerlikleriIzmir.toplamVeterinerSayisiniBul();
+
+        SehirVeterinerlikleri sehirVeterinerlikleriIstanbul = new SehirVeterinerlikleri("IStanbul");
+        sehirVeterinerlikleriIstanbul.sehireVeterineEkle(v1);
+        sehirVeterinerlikleriIstanbul.sehireVeterineEkle(v3);
+        sehirVeterinerlikleriIstanbul.toplamVeterinerSayisiniBul();
+
+        System.out.println("Yönetim Paneli");
+        YonetimPanali<Hayvan> hayvanYonetimPanali = new YonetimPanali();
+        hayvanYonetimPanali.bilgileriGoster(kedi);
+        hayvanYonetimPanali.bilgileriGoster(kopek);
+
+        YonetimPanali<Musteri> musteriYonetimPanali = new YonetimPanali();
+        musteriYonetimPanali.bilgileriGoster(m1);
+        musteriYonetimPanali.bilgileriGoster(m2);
+
+        musteriYonetimPanali.sahipOlduguHayvanlariGoster(m1);
+
+        musteriYonetimPanali.veterinerMusterileriniListele(v1);
 
     }
 }
