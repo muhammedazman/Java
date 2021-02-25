@@ -1,3 +1,7 @@
+package com.muhammedazman;
+
+import java.util.Objects;
+
 public class RasyonelSayi implements Comparable<RasyonelSayi> {
 
     private int pay;
@@ -70,6 +74,18 @@ public class RasyonelSayi implements Comparable<RasyonelSayi> {
         return sonuc;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RasyonelSayi that = (RasyonelSayi) o;
+        return pay == that.pay && payda == that.payda;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pay, payda);
+    }
 
     @Override
     public String toString() {
