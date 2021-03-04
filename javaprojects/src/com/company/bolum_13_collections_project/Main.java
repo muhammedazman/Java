@@ -7,6 +7,7 @@ import com.company.bolum_13_collections_project.udemykursplayer.Ogrenci;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Main {
@@ -61,7 +62,9 @@ public class Main {
     public static void listeyiOynat(LinkedList<Ders> izlenecekDersler){
         Scanner scan = new Scanner(System.in);
         boolean cikis = false;
-        Iterator<Ders> iterator = izlenecekDersler.listIterator();
+        boolean ileriDogruHareket = false;
+
+        ListIterator<Ders> iterator = izlenecekDersler.listIterator();
         if (izlenecekDersler.size() == 0) {
             System.out.println("Henüz bir ders eklenilmemis");
         } else {
@@ -70,13 +73,55 @@ public class Main {
         }
 
         menuGoster();
-        while (cikis){
+        // cikis false oldugu müddetce while calisacak
+        while (!cikis){
+            System.out.println("Seciminiz:");
             int kullaniciSecimi = scan.nextInt();
-
             switch (kullaniciSecimi){
                 case 0:
-                    System.out.println("Ulgulamadan cikiliyor");
+                    System.out.println("Uygulamadan cikiliyor");
                     cikis = true;
+                    break;
+                case 1:
+                    if (!ileriDogruHareket){
+                        ileriDogruHareket=true;
+
+                        if (iterator.hasNext()){
+                            iterator.next();
+                        }
+                    }
+
+                    if (iterator.hasNext()) {
+                        Ders ilkDers = iterator.next();
+                        System.out.println("======================================================================================");
+                        System.out.println("SU AN OYNATILAN:"+ ilkDers.getDersNo()+" der nolu "+ilkDers.getDersBaslik()+ " isimli "+ilkDers.getDakika());
+                        System.out.println("======================================================================================");
+                        ileriDogruHareket=true;
+                    } else {
+                        System.out.println("LISTENIN BASINA GELDINIZ. ILERI GIDEMEZSINIZ");
+                    }
+                    break;
+                case 2:
+                    if (ileriDogruHareket){
+                        ileriDogruHareket=false;
+
+                        if (iterator.hasPrevious()){
+                            iterator.previous();
+                        }
+                    }
+
+                    if (iterator.hasPrevious()) {
+                        Ders ilkDers = iterator.previous();
+                        System.out.println("======================================================================================");
+                        System.out.println("SU AN OYNATILAN:"+ ilkDers.getDersNo()+" der nolu "+ilkDers.getDersBaslik()+ " isimli "+ilkDers.getDakika());
+                        System.out.println("======================================================================================");
+                        ileriDogruHareket=false;
+                    } else {
+                        System.out.println("LISTENIN SONUNA GELDINIZ. GERI GIDEMEZSINIZ");
+                    }
+                    break;
+                case 3:
+                    izlenecekDersleriListele(izlenecekDersler);
                     break;
                 case 9:
                     menuGoster();
@@ -85,9 +130,25 @@ public class Main {
         }
     }
 
+    private static void izlenecekDersleriListele(LinkedList<Ders> izlenecekDersler) {
+        Iterator<Ders> iterator = izlenecekDersler.listIterator();
+        if (izlenecekDersler.size() == 0) {
+            System.out.println("Henüz bir ders eklenilmemis");
+            return;
+        } else {
+            while (iterator.hasNext()) {
+                Ders ilkDers = iterator.next();
+                System.out.println(ilkDers.getDersNo()+ " nolu ders: " + ilkDers.getDersBaslik() + " " + ilkDers.getDakika());
+            }
+        }
+    }
+
     private static void menuGoster() {
         System.out.println("****************** MENU ******************");
         System.out.println("0- Cikis");
+        System.out.println("1- Bir sonraki derse git");
+        System.out.println("2- Bir önceki  derse git");
+        System.out.println("3- Tüm listeyi göster");
         System.out.println("9- Menü");
     }
 }

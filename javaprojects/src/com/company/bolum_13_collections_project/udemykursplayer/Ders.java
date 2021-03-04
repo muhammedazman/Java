@@ -2,7 +2,7 @@ package com.company.bolum_13_collections_project.udemykursplayer;
 
 public class Ders {
 
-    private double dersNo;
+    private int dersNo;
     private String dersBaslik;
     private double dakika;
 
@@ -12,7 +12,7 @@ public class Ders {
         this.dakika = dakika;
     }
 
-    public double getDersNo() {
+    public int getDersNo() {
         return dersNo;
     }
 
