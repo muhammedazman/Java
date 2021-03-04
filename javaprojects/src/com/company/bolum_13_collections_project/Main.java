@@ -5,6 +5,10 @@ import com.company.bolum_13_collections_project.udemykursplayer.Egitmen;
 import com.company.bolum_13_collections_project.udemykursplayer.Kurs;
 import com.company.bolum_13_collections_project.udemykursplayer.Ogrenci;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,7 +23,13 @@ public class Main {
         Ders d2 = new Ders(2, "Java nedir", 9.2);
         Ders d3 = new Ders(3, "Primitive Veri Tipleri", 22.9);
         Ders d4 = new Ders(4, "Diziler", 15.9);
-        Ders d5 = new Ders(4, "Metotlar", 25);
+        Ders d5 = new Ders(5, "Metotlar", 25);
+
+        Ders d6 = new Ders(6, "Nesneler", 15.9);
+        Ders d7 = new Ders(7, "try catsch", 17);
+        Ders d8 = new Ders(8, "RecyclerView", 16.3);
+        Ders d9 = new Ders(9, "Sharedprefences", 21);
+        Ders d10 = new Ders(10, "Firebase", 13.9);
 
         Kurs javaKursu = new Kurs("Ileri Seviye Java Kursu", egitmenMuhammed);
         javaKursu.kursaDersEkle(d1);
@@ -31,6 +41,53 @@ public class Main {
         javaKursu.kursaEgitmenSil(egitmenMuhammed);
         javaKursu.kursaEgitmenSil(egitmenDeneme);
 
+        Kurs androidKursu = new Kurs("Android Kursu", egitmenMuhammed);
+        androidKursu.kursaDersEkle(d6);
+        androidKursu.kursaDersEkle(d7);
+        androidKursu.kursaDersEkle(d8);
+        androidKursu.kursaDersEkle(d9);
+        androidKursu.kursaDersEkle(d10);
+
         ogr1.kursaKatil(javaKursu);
+        ogr1.kursaKatil(androidKursu);
+        ogr1.izlenecekDersEkle(d6);
+        ogr1.izlenecekDersEkle(d7);
+        ogr1.izlenecekDersEkle(d8);
+        ogr1.izlenecekDersEkle(d9);
+
+        listeyiOynat(ogr1.getIzlenecekDersListesi());
+    }
+
+    public static void listeyiOynat(LinkedList<Ders> izlenecekDersler){
+        Scanner scan = new Scanner(System.in);
+        boolean cikis = false;
+        Iterator<Ders> iterator = izlenecekDersler.listIterator();
+        if (izlenecekDersler.size() == 0) {
+            System.out.println("Henüz bir ders eklenilmemis");
+        } else {
+            Ders ilkDers = iterator.next();
+            System.out.println("su an izlenen ders: "+ilkDers.getDersBaslik()+ " "+ilkDers.getDakika());
+        }
+
+        menuGoster();
+        while (cikis){
+            int kullaniciSecimi = scan.nextInt();
+
+            switch (kullaniciSecimi){
+                case 0:
+                    System.out.println("Ulgulamadan cikiliyor");
+                    cikis = true;
+                    break;
+                case 9:
+                    menuGoster();
+                    break;
+            }
+        }
+    }
+
+    private static void menuGoster() {
+        System.out.println("****************** MENU ******************");
+        System.out.println("0- Cikis");
+        System.out.println("9- Menü");
     }
 }

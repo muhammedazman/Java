@@ -75,4 +75,8 @@ public class Kurs {
     public String getKursAdi() {
         return kursAdi;
     }
+
+    public ArrayList<Ders> getKurstakiDersler() {
+        return kurstakiDersler;
+    }
 }
