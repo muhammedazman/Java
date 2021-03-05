@@ -1,4 +1,4 @@
-package com.company.bolum_13_collections_project;
+package com.company.bolum_13_collections_project.udemykursplayer;
 
 import com.company.bolum_13_collections_project.udemykursplayer.Ders;
 import com.company.bolum_13_collections_project.udemykursplayer.Egitmen;
