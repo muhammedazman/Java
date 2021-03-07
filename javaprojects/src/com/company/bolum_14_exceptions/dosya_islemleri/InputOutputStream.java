@@ -16,6 +16,22 @@ public class InputOutputStream {
         DataInputStream dataInputStream = null;
         DataInputStream dataInputStream1 = null;
         ArrayList<Ogrenci> ogrenciArrayList = new ArrayList<>();
+
+        // bu kullanim ile finally blogunu kullanmamiza gerek kalmiyor. (AutoCloseable)
+        try (DataInputStream dataInputStreamAutoClose = new DataInputStream(new BufferedInputStream(new FileInputStream("ogrenciler.dat")))){
+            int id = dataInputStreamAutoClose.readInt();
+            String isim = dataInputStreamAutoClose.readUTF();
+            boolean aktif = dataInputStreamAutoClose.readBoolean();
+
+            Ogrenci ogr = new Ogrenci(id, isim, aktif);
+            System.out.println(ogr.getId());
+            System.out.println(ogr.getIsim());
+            System.out.println(ogr.isAktif());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         try {
             dataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream("ogrenciler.dat")));
             Ogrenci okunanOgrenci1;
