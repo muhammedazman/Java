@@ -56,11 +56,26 @@ public class InputOutputStream {
                     dosyaSonu = true;
                 }
             }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e ) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } finally {
+            if (dataInputStream != null) {
+                try {
+                    dataInputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (dataInputStream1 != null) {
+                try {
+                    dataInputStream1.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
         System.out.println("Ogrenci ArrayList Size: "+ogrenciArrayList.size());
     }
 
@@ -82,8 +97,6 @@ public class InputOutputStream {
             dataOutputStream.writeInt(ogrenci2.id);
             dataOutputStream.writeUTF(ogrenci2.isim);
             dataOutputStream.writeBoolean(ogrenci2.aktif);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -114,24 +127,12 @@ class Ogrenci {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getIsim() {
         return isim;
     }
 
-    public void setIsim(String isim) {
-        this.isim = isim;
-    }
-
     public boolean isAktif() {
         return aktif;
-    }
-
-    public void setAktif(boolean aktif) {
-        this.aktif = aktif;
     }
 
     @Override
