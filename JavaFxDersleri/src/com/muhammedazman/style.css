@@ -1,0 +1,10 @@
+#tamamBtn {
+    -fx-text-fill: blue;
+    -fx-background-color: yellow;
+}
+
+#cikisBtn {
+    -fx-text-fill: red;
+    -fx-background-color: green;
+    -fx-font-size: 20
+}

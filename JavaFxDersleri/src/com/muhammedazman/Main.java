@@ -47,6 +47,8 @@ public class Main extends Application {
         hBox.getChildren().add(tamamButton);
         hBox.getChildren().add(cikisButton);
 
+        tamamButton.setId("tamamBtn");
+        cikisButton.setId("cikisBtn");
 
         //addEventListener
         tamamButton.setOnAction(new EventHandler<ActionEvent>() {
