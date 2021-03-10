@@ -1,7 +1,7 @@
 module LoginApp {
-    requires com.jfoenix;
-    requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.controls;
+    requires com.jfoenix;
 
     opens com.muhammedazman;
 }
