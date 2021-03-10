@@ -49,6 +49,7 @@ public class Main extends Application {
 
         tamamButton.setId("tamamBtn");
         cikisButton.setId("cikisBtn");
+        hBox.setId("sceneHbxId");
 
         //addEventListener
         tamamButton.setOnAction(new EventHandler<ActionEvent>() {
