@@ -3,6 +3,7 @@ package com.muhammedazman;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -21,7 +22,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        Pane rootNode = loader.load();
+        BorderPane rootNode = loader.load();
 
         Scene scene = new Scene(rootNode, 600, 400);
         stage.setScene(scene);
