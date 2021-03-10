@@ -11,4 +11,18 @@
 
 #sceneHbxId{
     -fx-background-color: red;
+    -fx-text-fill: brown;
+}
+
+/*main2*/
+#root {
+    -fx-background-color: blue;
+}
+
+#btnMerhaba {
+    -fx-background-color: red;
+}
+
+.btnSelam {
+    -fx-background-color: pink;
 }
