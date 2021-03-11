@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane fx:id="anaPencere" maxHeight="-Infinity"  fx:controller="com.muhammedazman.Controller" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="anaPencere" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.muhammedazman.Controller">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -21,4 +21,7 @@
         </menus>
       </MenuBar>
    </top>
+   <left>
+      <ListView fx:id="filmListesi" prefHeight="574.0" prefWidth="265.0" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>

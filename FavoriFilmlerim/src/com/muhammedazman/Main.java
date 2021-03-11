@@ -32,8 +32,8 @@ public class Main extends Application {
         /*LocalDate localDate = LocalDate.now();
         Film film = new Film("Gora", "Cem Yilmaz Filmi", localDate);
         FilmData.getInstance().filmEkle(film);
-        FilmData.getInstance().filmEkle(film);
-        FilmData.getInstance().dosyayaFilmleriYaz();*/
+        FilmData.getInstance().filmEkle(film);*/
+        FilmData.getInstance().dosyayaFilmleriYaz();
         super.stop();
     }
 }

@@ -24,8 +24,14 @@
             <Font name="Microsoft JhengHei Light" size="30.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtFilmAdi" focusColor="#009688" layoutX="178.0" layoutY="6.0" prefHeight="58.0" prefWidth="395.0" unFocusColor="#009688" />
-      <JFXTextArea fx:id="txtFilmDetay" focusColor="#009688" layoutX="178.0" layoutY="75.0" prefHeight="175.0" prefWidth="395.0" unFocusColor="#009688" />
+      <JFXTextField fx:id="txtFilmAdi" focusColor="#009688" layoutX="178.0" layoutY="6.0" prefHeight="58.0" prefWidth="395.0" unFocusColor="#009688">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="30.0" />
+         </font></JFXTextField>
+      <JFXTextArea fx:id="txtFilmDetay" focusColor="#009688" layoutX="178.0" layoutY="75.0" prefHeight="175.0" prefWidth="395.0" unFocusColor="#009688">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="30.0" />
+         </font></JFXTextArea>
       <JFXDatePicker fx:id="dateCikisTarihi" layoutX="178.0" layoutY="320.0" prefHeight="58.0" prefWidth="415.0" />
    </children>
 </AnchorPane>

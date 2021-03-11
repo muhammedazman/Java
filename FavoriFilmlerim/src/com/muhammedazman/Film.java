@@ -40,10 +40,6 @@ public class Film {
 
     @Override
     public String toString() {
-        return "Film{" +
-                "baslik='" + baslik + '\'' +
-                ", detay='" + detay + '\'' +
-                ", cikisTarihi=" + cikisTarihi +
-                '}';
+        return baslik;
     }
 }

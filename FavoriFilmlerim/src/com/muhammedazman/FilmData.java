@@ -73,4 +73,8 @@ public class FilmData {
             e.printStackTrace();
         }
     }
+
+    public ObservableList<Film> getFilmListesi() {
+        return filmListesi;
+    }
 }
