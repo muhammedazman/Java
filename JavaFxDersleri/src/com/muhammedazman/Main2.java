@@ -10,7 +10,7 @@ public class Main2 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent loader = FXMLLoader.load(getClass().getResource("sample2.fxml"));
-        Scene scene = new Scene(loader, 600, 400);
+        Scene scene = new Scene(loader, 900, 600);
         stage.setScene(scene);
         stage.show();
     }
