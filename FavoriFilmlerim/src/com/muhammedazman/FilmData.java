@@ -77,4 +77,8 @@ public class FilmData {
     public ObservableList<Film> getFilmListesi() {
         return filmListesi;
     }
+
+    public DateTimeFormatter getFormatter() {
+        return formatter;
+    }
 }
