@@ -6,11 +6,14 @@ public class Main {
 
         System.out.println("Program baslatildi " + Thread.currentThread().getName());
 
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Isci isci = new Isci();
+        isci.setName("ISCI SINIFI THREADI");
+        isci.start();
+
+        IsciRunnable isciRunnable = new IsciRunnable();
+        Thread isciThread = new Thread(isciRunnable);
+        isciThread.setName("ISCI RUNNABLE");
+        isciThread.start();
 
         System.out.println("Program bitti...");
     }
