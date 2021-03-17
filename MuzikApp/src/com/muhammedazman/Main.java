@@ -11,7 +11,7 @@ public class Main {
         DataSource dataSource = new DataSource();
         dataSource.connectDB();
 
-        ArrayList<Sarkici> singers = dataSource.allSingers();
+        ArrayList<Sarkici> singers = dataSource.allSingers(DataSource.ORDER_DESC);
 
         if (singers == null) {
             System.out.println("Sarkici Bilgisi Yoktur!");

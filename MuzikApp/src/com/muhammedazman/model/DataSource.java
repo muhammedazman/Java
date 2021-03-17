@@ -26,6 +26,10 @@ public class DataSource {
     public static final String SUTUN_SARKI_ADI = "sarkiAdi";
     public static final String SUTUN_SARKI_ALBUM_ID = "albumID";
 
+    // Order By Option
+    public static final int ORDER_ASC = 1;
+    public static final int ORDER_DESC = 2;
+
     private Connection connection;
 
     public boolean connectDB() {
@@ -48,9 +52,22 @@ public class DataSource {
         }
     }
 
-    public ArrayList<Sarkici> allSingers() {
+    public ArrayList<Sarkici> allSingers(int siralama) {
+        StringBuilder sqlQuery = new StringBuilder("SELECT * FROM ");
+        sqlQuery.append(TABLO_SARKICI);
+
+        if (siralama == ORDER_DESC) {
+            sqlQuery.append(" ORDER BY ");
+            sqlQuery.append(SUTUN_SARKICI_ADI);
+            sqlQuery.append(" DESC ");
+        } else {
+            sqlQuery.append(" ORDER BY ");
+            sqlQuery.append(SUTUN_SARKICI_ADI);
+            sqlQuery.append(" ASC ");
+        }
+
         try (Statement statement = connection.createStatement()) {
-            ResultSet query = statement.executeQuery("SELECT * FROM " + TABLO_SARKICI);
+            ResultSet query = statement.executeQuery(String.valueOf(sqlQuery));
             ArrayList<Sarkici> singers = new ArrayList<>();
             while (query.next()) {
                 Sarkici sarkici = new Sarkici();
