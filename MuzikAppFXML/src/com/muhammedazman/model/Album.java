@@ -3,7 +3,7 @@ package com.muhammedazman.model;
 public class Album {
 
     private int albumID;
-    private String albumAdi;
+    private String isim;
     private int sarkiciID;
 
     public int getAlbumID() {
@@ -14,12 +14,12 @@ public class Album {
         this.albumID = albumID;
     }
 
-    public String getAlbumAdi() {
-        return albumAdi;
+    public String getIsim() {
+        return isim;
     }
 
-    public void setAlbumAdi(String albumAdi) {
-        this.albumAdi = albumAdi;
+    public void setIsim(String isim) {
+        this.isim = isim;
     }
 
     public int getSarkiciID() {

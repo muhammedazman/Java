@@ -1,12 +1,10 @@
 package com.muhammedazman.model;
 
 
-import javafx.beans.property.StringProperty;
-
 public class Sarkici {
 
     private int sarkiciID;
-    private String sarkiciAdi;
+    private String isim;
 
     public int getSarkiciID() {
         return sarkiciID;
@@ -16,11 +14,11 @@ public class Sarkici {
         this.sarkiciID = sarkiciID;
     }
 
-    public String getSarkiciAdi() {
-        return sarkiciAdi;
+    public String getIsim() {
+        return isim;
     }
 
-    public void setSarkiciAdi(String sarkiciAdi) {
-        this.sarkiciAdi = sarkiciAdi;
+    public void setIsim(String isim) {
+        this.isim = isim;
     }
 }

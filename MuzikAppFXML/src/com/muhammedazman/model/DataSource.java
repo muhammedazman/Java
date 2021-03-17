@@ -90,12 +90,35 @@ public class DataSource {
             while (query.next()) {
                 Sarkici sarkici = new Sarkici();
                 sarkici.setSarkiciID(query.getInt(SUTUN_SARKICI_ID));
-                sarkici.setSarkiciAdi(query.getString(SUTUN_SARKICI_ADI));
+                sarkici.setIsim(query.getString(SUTUN_SARKICI_ADI));
                 singers.add(sarkici);
             }
             return singers;
         } catch (SQLException e) {
             System.out.println("Sarkici Sorgusu Basarisiz"+e.toString());
+            return null;
+        }
+    }
+
+    public ArrayList<Album> allSingersAlbums(int sarkiciID) {
+        String sqlQuery = "SELECT * FROM " + TABLO_ALBUM + " WHERE "+SUTUN_ALBUM_SARKICI_ID + " = ? ";
+        try (PreparedStatement statement = connection.prepareStatement(sqlQuery)){
+            statement.setInt(1, sarkiciID);
+            ResultSet resultSet =statement.executeQuery();
+
+            ArrayList<Album> albums = new ArrayList<>();
+
+            while (resultSet.next()) {
+               Album album = new Album();
+               album.setAlbumID(resultSet.getInt(SUTUN_ALBUM_ID));
+               album.setIsim(resultSet.getString(SUTUN_ALBUM_ADI));
+               album.setSarkiciID(resultSet.getInt(SUTUN_ALBUM_SARKICI_ID));
+               albums.add(album);
+            }
+
+            return albums;
+        } catch (SQLException e) {
+            System.out.println("Singer's Album SQL not run");
             return null;
         }
     }
