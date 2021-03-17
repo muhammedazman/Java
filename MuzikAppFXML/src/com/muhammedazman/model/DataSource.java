@@ -32,6 +32,24 @@ public class DataSource {
 
     private Connection connection;
 
+    // Singelaton Design Pattern
+    private DataSource(){}
+    /*
+    // bu kod thread safe degil
+    private static DataSource instance;
+    public static DataSource getInstance(){
+        if (instance == null) {
+            instance = new DataSource();
+        }
+        return instance;
+    }
+    */
+
+    private static DataSource instance = new DataSource();
+    public static DataSource getInstance(){
+        return instance;
+    }
+
     public boolean connectDB() {
         try {
             connection = DriverManager.getConnection(CONNECTION_STRING);

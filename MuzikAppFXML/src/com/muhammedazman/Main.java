@@ -1,6 +1,8 @@
 package com.muhammedazman;
 
+import com.muhammedazman.model.DataSource;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +18,20 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    @Override
+    public void init() throws Exception {
+        super.init();
+        if (!DataSource.getInstance().connectDB()) {
+            System.out.println("Veritabanina baglanilamadi");
+            Platform.exit();
+        }
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        DataSource.getInstance().closeDB();
+    }
 
     public static void main(String[] args) {
         launch(args);
