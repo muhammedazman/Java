@@ -5,16 +5,20 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.muhammedazman.Controller">
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablo" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="getirilecekBilgi" prefWidth="645.6000061273575" text="Adi" />
+          <TableColumn fx:id="getirilecekBilgi" prefWidth="645.6000061273575" text="Adi">
+             <cellValueFactory>
+                <PropertyValueFactory property="sarkiciAdi"></PropertyValueFactory>
+             </cellValueFactory>
+          </TableColumn>
         </columns>
       </TableView>
    </center>

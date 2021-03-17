@@ -1,5 +1,8 @@
 package com.muhammedazman.model;
 
+
+import javafx.beans.property.StringProperty;
+
 public class Sarkici {
 
     private int sarkiciID;

@@ -30,8 +30,6 @@ public class DataSource {
     public static final int ORDER_ASC = 1;
     public static final int ORDER_DESC = 2;
 
-    private Connection connection;
-
     // Singelaton Design Pattern
     private DataSource(){}
     /*
@@ -49,6 +47,8 @@ public class DataSource {
     public static DataSource getInstance(){
         return instance;
     }
+
+    private Connection connection;
 
     public boolean connectDB() {
         try {
@@ -95,7 +95,7 @@ public class DataSource {
             }
             return singers;
         } catch (SQLException e) {
-            System.out.println("Sarkici Sorgusu Basarisiz");
+            System.out.println("Sarkici Sorgusu Basarisiz"+e.toString());
             return null;
         }
     }
