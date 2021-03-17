@@ -25,7 +25,7 @@
    <right>
       <VBox prefHeight="600.0" prefWidth="253.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="btnTumSarkicilar" prefHeight="26.0" prefWidth="238.0" text="Tüm Sarkicilar">
+            <JFXButton fx:id="btnTumSarkicilar" onAction="#getAllSingers" prefHeight="26.0" prefWidth="238.0" text="Tüm Sarkicilar">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
@@ -46,7 +46,7 @@
    <bottom>
       <HBox prefHeight="19.0" prefWidth="799.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXProgressBar prefHeight="18.0" prefWidth="574.0" visible="false">
+            <JFXProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="574.0" visible="false">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
