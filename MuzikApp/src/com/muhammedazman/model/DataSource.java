@@ -1,8 +1,7 @@
 package com.muhammedazman.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 // Veritabanlari ile ilgili tum islemleri burdan takip edecegiz
 public class DataSource {
@@ -46,6 +45,23 @@ public class DataSource {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Sarkici> allSingers() {
+        try (Statement statement = connection.createStatement()) {
+            ResultSet query = statement.executeQuery("SELECT * FROM " + TABLO_SARKICI);
+            ArrayList<Sarkici> singers = new ArrayList<>();
+            while (query.next()) {
+                Sarkici sarkici = new Sarkici();
+                sarkici.setSarkiciID(query.getInt(SUTUN_SARKICI_ID));
+                sarkici.setSarkiciAdi(query.getString(SUTUN_SARKICI_ADI));
+                singers.add(sarkici);
+            }
+            return singers;
+        } catch (SQLException e) {
+            System.out.println("Sarkici Sorgusu Basarisiz");
+            return null;
         }
     }
 }
