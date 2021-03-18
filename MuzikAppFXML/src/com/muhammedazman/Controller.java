@@ -53,11 +53,38 @@ public class Controller {
             @Override
             protected ObservableList<Album> call() throws Exception {
                 System.out.println("Thread Album: "+ Thread.currentThread().getName());
+                progressBar.setVisible(true);
+                Thread.sleep(1000);
                 return FXCollections.observableArrayList(DataSource.getInstance().allSingersAlbums(selectedSinger.getSarkiciID()));
             }
         };
 
         tablo.itemsProperty().bind(task.valueProperty());
+
+        task.setOnSucceeded(event -> progressBar.setVisible(false));
+
+        new Thread(task).start();
+    }
+
+    @FXML
+    public void updateSinger(){
+        final Sarkici selectedSinger = (Sarkici) tablo.getSelectionModel().getSelectedItem();
+
+        if (selectedSinger == null) return;
+
+        Task<Boolean> task = new Task() {
+            @Override
+            protected Boolean call() throws Exception {
+                boolean isSucceed = DataSource.getInstance().updateSinger(selectedSinger, "Hakan");
+                return isSucceed;
+            }
+        };
+
+        task.setOnSucceeded(event -> {
+            if (task.valueProperty().getValue())
+                getAllSingers();
+        });
+
         new Thread(task).start();
     }
 }

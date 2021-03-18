@@ -122,4 +122,18 @@ public class DataSource {
             return null;
         }
     }
+
+    public boolean updateSinger(Sarkici oldSinger, String newName) {
+        String SQL = "UPDATE " + TABLO_SARKICI + " SET "+SUTUN_SARKICI_ADI +" = ?  WHERE " +SUTUN_SARKICI_ID + " = " + oldSinger.getSarkiciID();
+        try (PreparedStatement statement = connection.prepareStatement(SQL)){
+            statement.setString(1, newName);
+            int result = statement.executeUpdate();
+            return result==1;//true?
+        } catch (SQLException e) {
+            System.out.println("Singers Table not updated");
+            return false;
+        }
+
+
+    }
 }
